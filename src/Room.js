@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Video from 'twilio-video';
 import Participant from './Participant';
+import LabelBottomNavigation from './Navigation';
+import VideoChat from "./VideoChat";
+
+const styles = {
+  color: "red",
+  background: "#0f0",
+  fontSize: "32px",
+
+};
 
 const Room = ({ roomName, token, handleLogout }) => {
   const [room, setRoom] = useState(null);
@@ -48,7 +57,11 @@ const Room = ({ roomName, token, handleLogout }) => {
   return (
     <div className="room">
       <h2>Room: {roomName}</h2>
-      <button onClick={handleLogout}>Log out</button>
+      <div classRoom="container">
+        <button onClick={handleLogout}>Leave</button>
+{/*        <button onClick={null}>report</button>
+        <button onClick={null}>private convo</button>*/}
+      </div>
       <div className="local-participant">
         {room ? (
           <Participant

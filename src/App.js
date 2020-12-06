@@ -11,10 +11,10 @@ const App = () => {
       <main>
         <VideoChat />
       </main>
-      <footer>
+{/*      <footer>
         <p>
         </p>
-      </footer>
+      </footer>*/}
     </div>
   );
 };

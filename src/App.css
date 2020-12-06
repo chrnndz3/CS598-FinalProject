@@ -30,7 +30,7 @@ header {
 
 h1 {
   font-weight: 300;
-  padding: 0.4em 0;
+  padding-top: 55px;
 }
 
 #root {
@@ -83,11 +83,16 @@ form > div > input {
 
 button {
   background: #333e5a;
+  margin-left: 10px;
+  margin-right: 10px;
   color: #fff;
   font-size: 16px;
   padding: 0.4em;
   border-radius: 6px;
   border: 1px solid transparent;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 button:hover {
   filter: brightness(150%);
@@ -97,14 +102,25 @@ button:hover {
   position: relative;
 }
 .room button {
-  position: absolute;
+  position: relative;
   top: 0;
   right: 20px;
+}
+.room footer {
+  position:absolute;
+  text-align: right;
+  left:0;
+  bottom:0;
+  right:0;
 }
 .room > h3 {
   text-align: center;
   font-weight: 300;
   margin-bottom: 1em;
+}
+.navigator {
+  text-align: center;
+  margin-bottom: 2em;
 }
 
 .local-participant {
@@ -140,15 +156,82 @@ video {
   margin: 0 auto;
   border-radius: 6px;
 }
-
+/*bottom footer in Classroom*/
 footer {
-  background: #333e5a;
+  position: fixed;
+  bottom: 0px;
+  background: #ffffff;
   color: #fff;
   text-align: center;
   flex-grow: 0;
   padding: 1em 0;
 }
+.container {
+  /*min-height: 100%;*/
+  position: absolute;
+  text-align: center;
+  bottom: 0px;
+}
+/*#body {
+  padding-bottom: 45%;
+}*/
 
 footer a {
   color: #fff;
+}
+
+.navigation {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-group button {
+  background-color: #333e5a; /* background */
+  border: 1px solid #333e5a; /*  border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  filter: brightness(150%);
+}
+
+.padding {
+  padding-top: 10px;
+  text-align: center;
+}
+.participant button {
+  background: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: grey;
+  font-size: 16px;
+  padding: 0.4em;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
