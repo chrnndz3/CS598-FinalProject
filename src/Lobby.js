@@ -1,12 +1,11 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
+import React from 'react';
 
 const Lobby = ({
   username,
   handleUsernameChange,
   roomName,
   handleRoomNameChange,
-  handleSubmit,
+  handleSubmit
 }) => {
   return (
     <form onSubmit={handleSubmit}>
@@ -32,10 +31,7 @@ const Lobby = ({
           required
         />
       </div>
-
-      <button className="btn btn-primary" type="submit">
-        Join Classroom
-      </button>
+      <button type="submit">Join Classroom</button>
     </form>
   );
 };

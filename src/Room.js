@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Video from "twilio-video";
 import Participant from "./Participant";
-import "bootstrap/dist/css/bootstrap.css";
 
 const Room = ({ roomName, token, handleLogout }) => {
   const [room, setRoom] = useState(null);
@@ -19,7 +18,7 @@ const Room = ({ roomName, token, handleLogout }) => {
     };
 
     Video.connect(token, {
-      name: roomName,
+      name: roomName
     }).then((room) => {
       setRoom(room);
       room.on("participantConnected", participantConnected);
@@ -52,11 +51,7 @@ const Room = ({ roomName, token, handleLogout }) => {
     <div className="room">
       <h2>Room: {roomName}</h2>
       <div classRoom="container">
-        <button className="btn btn-primary" onClick={handleLogout}>
-          Leave
-        </button>
-        {/*        <button onClick={null}>report</button>
-        <button onClick={null}>private convo</button>*/}
+        <button onClick={handleLogout}>Leave</button>
       </div>
       <div className="local-participant">
         {room ? (

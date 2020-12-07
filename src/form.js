@@ -1,5 +1,4 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
 
 export const Form = ({ onSubmit }) => {
   return (
@@ -12,7 +11,6 @@ export const Form = ({ onSubmit }) => {
           placeholder="John Appleseed"
         />
       </div>
-
       <div className="form-group">
         <label htmlFor="email">Email address</label>
         <input
@@ -23,40 +21,23 @@ export const Form = ({ onSubmit }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="report">Report Incident</label>
+        <label htmlFor="report">Incident</label>
         <textarea
           class="form-control"
           id="report"
-          placeholder="Summarize the incident"
+          placeholder="Summarize the incident..."
           rows="4"
         ></textarea>
-        {/* <input
-          type="text"
-          className="form-control"
-          id="report"
-          placeholder="What Happened?"
-        /> */}
       </div>
       <div className="form-group">
         <label htmlFor="details">Details</label>
         <textarea
           class="form-control"
           id="details"
-          placeholder="Details of incident"
+          placeholder="Details of incident e.g. time, classroom name etc"
           rows="4"
         ></textarea>
-        {/* <input
-          type="text"
-          className="form-control"
-          id="details"
-          placeholder="Details of incident"
-        /> */}
       </div>
-      {/* <div className="form-group">
-        <button className="form-control btn btn-primary" type="submit">
-          Submit
-        </button>
-      </div> */}
     </form>
   );
 };

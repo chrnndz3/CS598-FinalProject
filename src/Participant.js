@@ -3,7 +3,6 @@ import { Button, IconButton } from "@material-ui/core";
 import { motion } from "framer-motion";
 import Modal from "react-modal";
 import Form from "./form";
-import "bootstrap/dist/css/bootstrap.css";
 
 import {
   Chat,
@@ -11,7 +10,7 @@ import {
   VideoCall,
   VideocamOff,
   VolumeOff,
-  VolumeUp,
+  VolumeUp
 } from "@material-ui/icons";
 import PanToolIcon from "@material-ui/icons/PanTool";
 import Webcam from "react-webcam";
@@ -108,25 +107,13 @@ const Participant = ({ participant }) => {
       className="participant"
       initial={{ opacity: 0 }}
       animate={isFocus ? "visible" : "hidden"}
-      variants={toggleFocus}
-      // // animate={{ opacity: 1 }}
-      // // transition={{
-      // //   type: "spring",
-      // //   damping: 10,
-      // //   stiffness: 100,
-      // // }}
-      // // whileHover={{ scale: 1.1 }}
-      // // whileTap={{ scale: 0.9 }}
-      // variants={toggleFocus}
-      // animate={isFocus ? "visible" : "hidden"}
-    >
+      variants={toggleFocus}>
       <h3>{participant.identity}</h3>
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={isClicked ? "visible" : "hidden"}
-        variants={toggleVideo}
-      >
+        variants={toggleVideo}>
         <video ref={videoRef} autoPlay={true} />
         <audio ref={audioRef} autoPlay={true} muted={true} />
       </motion.div>
@@ -136,14 +123,9 @@ const Participant = ({ participant }) => {
           <IconButton aria-label="chat" color="primary">
             <Chat />
           </IconButton>
-          <IconButton
-            aria-label="mute"
-            color="primary"
-            onClick={() => setClicked(!clicked)}
-          >
+          <IconButton aria-label="mute" color="primary" nClick={() => setClicked(!clicked)}>
             {clicked ? <VolumeUp /> : <VolumeOff />}
           </IconButton>
-
           <IconButton aria-label="video call off" color="primary">
             <VideocamOff onClick={() => setIsClicked(!isClicked)} />
           </IconButton>
@@ -151,12 +133,9 @@ const Participant = ({ participant }) => {
             <Report onClick={() => manageState()} />
             <Modal isOpen={openModal} onRequestClose={() => manageState()}>
               <Form></Form>
-              <div>
-                <button
-                  className="btn btn-success"
-                  onClick={() => manageState()}
-                >
-                  x
+              <div className="report">
+                <button onClick={() => manageState()}>
+                  Report
                 </button>
               </div>
             </Modal>
@@ -168,11 +147,7 @@ const Participant = ({ participant }) => {
       </div>
       <div className="videos">
         <div id="video-container">
-          <Button
-            className="test"
-            color="primary"
-            onClick={() => setClicked2(true)}
-          >
+          <Button className="test" color="primary" onClick={() => setClicked2(true)}>
             Join
             {clicked2 ? <Webcam width={100} height={100} /> : <VideoCall />}
           </Button>
