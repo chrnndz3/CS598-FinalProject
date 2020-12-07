@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import {Button, IconButton} from "@material-ui/core";
+import { Button, IconButton } from "@material-ui/core";
+import { motion } from "framer-motion";
+import Modal from "react-modal";
+import Form from "./form";
+import "bootstrap/dist/css/bootstrap.css";
 
 import {
   Chat,
@@ -7,14 +11,15 @@ import {
   VideoCall,
   VideocamOff,
   VolumeOff,
-  VolumeUp
+  VolumeUp,
 } from "@material-ui/icons";
+import PanToolIcon from "@material-ui/icons/PanTool";
 import Webcam from "react-webcam";
 
 const Participant = ({ participant }) => {
   const [videoTracks, setVideoTracks] = useState([]);
   const [audioTracks, setAudioTracks] = useState([]);
-  const [clicked, setClicked] = useState();
+  const [clicked, setClicked] = useState(false);
   const [clicked2, setClicked2] = useState();
 
   const videoRef = useRef();
@@ -75,39 +80,105 @@ const Participant = ({ participant }) => {
     }
   }, [audioTracks]);
 
+  const toggleVideo = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
+  const toggleFocus = {
+    visible: {
+      opacity: 1,
+      scale: [1, 1.5, 1, 1.5, 1, 1.5, 1],
+      transition: {
+        duration: 5,
+      },
+    },
+    hidden: { opacity: 1 },
+  };
+
+  const [isClicked, setIsClicked] = useState(false);
+  const [isFocus, setFocus] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const manageState = () => {
+    setOpenModal(!openModal);
+  };
+
   return (
-    <div className="participant">
+    <motion.div
+      className="participant"
+      initial={{ opacity: 0 }}
+      animate={isFocus ? "visible" : "hidden"}
+      variants={toggleFocus}
+      // // animate={{ opacity: 1 }}
+      // // transition={{
+      // //   type: "spring",
+      // //   damping: 10,
+      // //   stiffness: 100,
+      // // }}
+      // // whileHover={{ scale: 1.1 }}
+      // // whileTap={{ scale: 0.9 }}
+      // variants={toggleFocus}
+      // animate={isFocus ? "visible" : "hidden"}
+    >
       <h3>{participant.identity}</h3>
-      <video ref={videoRef} autoPlay={true} />
-      <audio ref={audioRef} autoPlay={true} muted={true} />
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isClicked ? "visible" : "hidden"}
+        variants={toggleVideo}
+      >
+        <video ref={videoRef} autoPlay={true} />
+        <audio ref={audioRef} autoPlay={true} muted={true} />
+      </motion.div>
+
       <div className="padding">
         <div classRoom="container">
           <IconButton aria-label="chat" color="primary">
-            <Chat/>
+            <Chat />
           </IconButton>
-          <IconButton aria-label="mute" color="primary" onClick={() => setClicked(true)}>
-            {clicked ?  <VolumeUp/> : <VolumeOff/>}
+          <IconButton
+            aria-label="mute"
+            color="primary"
+            onClick={() => setClicked(!clicked)}
+          >
+            {clicked ? <VolumeUp /> : <VolumeOff />}
           </IconButton>
+
           <IconButton aria-label="video call off" color="primary">
-            <VideocamOff/>
+            <VideocamOff onClick={() => setIsClicked(!isClicked)} />
           </IconButton>
           <IconButton aria-label="report" color="primary">
-            <Report/>
+            <Report onClick={() => manageState()} />
+            <Modal isOpen={openModal} onRequestClose={() => manageState()}>
+              <Form></Form>
+              <div>
+                <button
+                  className="btn btn-success"
+                  onClick={() => manageState()}
+                >
+                  x
+                </button>
+              </div>
+            </Modal>
+          </IconButton>
+          <IconButton>
+            <PanToolIcon onClick={() => setFocus(!isFocus)}></PanToolIcon>
           </IconButton>
         </div>
       </div>
       <div className="videos">
         <div id="video-container">
-          <Button className="tes" color="primary" onClick={() => setClicked2(true)}>
-            JOIN
-            {clicked2 ? <Webcam
-                width={60}
-                height={60}
-            /> : <VideoCall/>}
+          <Button
+            className="test"
+            color="primary"
+            onClick={() => setClicked2(true)}
+          >
+            Join
+            {clicked2 ? <Webcam width={100} height={100} /> : <VideoCall />}
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
