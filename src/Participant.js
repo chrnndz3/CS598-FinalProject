@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import {IconButton} from "@material-ui/core";
+import {Button, IconButton} from "@material-ui/core";
 
 import {
   Chat,
@@ -9,11 +9,13 @@ import {
   VolumeOff,
   VolumeUp
 } from "@material-ui/icons";
+import Webcam from "react-webcam";
 
 const Participant = ({ participant }) => {
   const [videoTracks, setVideoTracks] = useState([]);
   const [audioTracks, setAudioTracks] = useState([]);
   const [clicked, setClicked] = useState();
+  const [clicked2, setClicked2] = useState();
 
   const videoRef = useRef();
   const audioRef = useRef();
@@ -84,10 +86,7 @@ const Participant = ({ participant }) => {
             <Chat/>
           </IconButton>
           <IconButton aria-label="mute" color="primary" onClick={() => setClicked(true)}>
-            {clicked ? <VolumeOff/> : <VolumeUp/>}
-          </IconButton>
-          <IconButton aria-label="add a new person" color="primary">
-            <VideoCall/>
+            {clicked ?  <VolumeUp/> : <VolumeOff/>}
           </IconButton>
           <IconButton aria-label="video call off" color="primary">
             <VideocamOff/>
@@ -95,6 +94,17 @@ const Participant = ({ participant }) => {
           <IconButton aria-label="report" color="primary">
             <Report/>
           </IconButton>
+        </div>
+      </div>
+      <div className="videos">
+        <div id="video-container">
+          <Button className="tes" color="primary" onClick={() => setClicked2(true)}>
+            JOIN
+            {clicked2 ? <Webcam
+                width={60}
+                height={60}
+            /> : <VideoCall/>}
+          </Button>
         </div>
       </div>
     </div>

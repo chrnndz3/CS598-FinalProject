@@ -235,3 +235,11 @@ footer a {
   right: 0;
   text-align: center;
 }
+
+.videos {
+  position: relative;
+  padding-top: 10px;
+  text-align: center;
+  /*right: 20px;*/
+  /*left: 20px;*/
+}

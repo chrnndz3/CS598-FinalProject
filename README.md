@@ -21,13 +21,15 @@ npm install
 ```bash
 npm i npm-run-all
 ```
-``` bash
-npm install @material-ui/core
+```bash
+npm i @material-ui/core
 ```
-``` bash
-npm install @material-ui/icons
+```bash
+npm i @material-ui/icons
 ```
-
+```bash
+npm i react-webcam
+```
 
 Create a `.env` file by copying the `.env.example`.
 

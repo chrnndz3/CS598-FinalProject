@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Video from 'twilio-video';
 import Participant from './Participant';
-import LabelBottomNavigation from './Navigation';
-import VideoChat from "./VideoChat";
-
-const styles = {
-  color: "red",
-  background: "#0f0",
-  fontSize: "32px",
-
-};
 
 const Room = ({ roomName, token, handleLogout }) => {
   const [room, setRoom] = useState(null);
