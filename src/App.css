@@ -8,10 +8,10 @@ html {
   height: 100%;
   position: relative;
   background: url(crop.png) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {
@@ -109,11 +109,11 @@ button:hover {
   right: 20px;
 }
 .room footer {
-  position:absolute;
+  position: absolute;
   text-align: right;
-  left:0;
-  bottom:0;
-  right:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .room > h3 {
   text-align: center;
@@ -251,13 +251,15 @@ footer a {
 }
 
 textarea {
-  width:300px;
-  height:150px;
+  width: 300px;
+  height: 150px;
 }
 
 .account {
   position: relative;
-  text-align: center;
+  text-align: right;
   right: 10px;
   top: 5px;
+  color: white;
+  /* background-color: white; */
 }
