@@ -1,8 +1,8 @@
-# Twilio Video chat with React Hooks
+# Smitten Kitchen
 
-This is an example video chat application built with [Twilio Video](https://www.twilio.com/docs/video) and React, using Hooks.
+Smitten Kitchen is a Web application that lets friends, family, and others to gather around to embrace and explore cultural heritage through online cooking classes. 
 
-Learn how to build this entire application in the blog post [Build a Twilio Video Chat with React Hooks](https://www.twilio.com/blog/video-chat-react-hooks).
+It is build using the following technologies:  React, [Twilio](https://www.twilio.com/try-twilio) for the videos , NPM, Material UI, and Framer Motion. 
 
 ## Preparing the application
 
@@ -21,15 +21,6 @@ npm install
 ```bash
 npm i npm-run-all
 ```
-```bash
-npm i @material-ui/core
-```
-```bash
-npm i @material-ui/icons
-```
-```bash
-npm i react-webcam
-```
 
 Create a `.env` file by copying the `.env.example`.
 
@@ -41,7 +32,7 @@ cp .env.example .env
 
 You will need your Twilio Account SID, available in your [Twilio console](https://www.twilio.com/console). Add it to the `.env` file.
 
-You will also need an API key and secret, you can create these under the [Programmable Video Tools in your console](https://www.twilio.com/console/video/project/api-keys). Create a key pair and add them to the `.env` file too.
+You will also need an API key SID and secret, you can create these under the [Programmable Video Tools in your console](https://www.twilio.com/console/video/project/api-keys). Create a key pair and add them to the `.env` file too. See image below.
 
 ## Running the application
 
