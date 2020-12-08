@@ -34,6 +34,8 @@ You will need your Twilio Account SID, available in your [Twilio console](https:
 
 You will also need an API key SID and secret, you can create these under the [Programmable Video Tools in your console](https://www.twilio.com/console/video/project/api-keys). Create a key pair and add them to the `.env` file too. See image below.
 
+<img src="createTwilioCredentials.png" width="450" >
+
 ## Running the application
 
 Once you have completed the above you can run the application with:
