@@ -7,7 +7,7 @@ import Form from "./form";
 import {
   Chat,
   Report,
-  VideoCall,
+  VideoCall, Videocam,
   VideocamOff,
   VolumeOff,
   VolumeUp
@@ -95,7 +95,7 @@ const Participant = ({ participant }) => {
     hidden: { opacity: 1 },
   };
 
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(true);
   const [isFocus, setFocus] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const manageState = () => {
@@ -123,11 +123,11 @@ const Participant = ({ participant }) => {
           <IconButton aria-label="chat" color="primary">
             <Chat />
           </IconButton>
-          <IconButton aria-label="mute" color="primary" nClick={() => setClicked(!clicked)}>
+          <IconButton aria-label="mute" color="primary" onClick={() => setClicked(!clicked)}>
             {clicked ? <VolumeUp /> : <VolumeOff />}
           </IconButton>
-          <IconButton aria-label="video call off" color="primary">
-            <VideocamOff onClick={() => setIsClicked(!isClicked)} />
+          <IconButton aria-label="video call off" color="primary" onClick={() => setIsClicked(!isClicked)}>
+            {isClicked ? <VideocamOff /> : <Videocam />}
           </IconButton>
           <IconButton aria-label="report" color="primary">
             <Report onClick={() => manageState()} />
