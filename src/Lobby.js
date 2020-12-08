@@ -22,7 +22,7 @@ const Lobby = ({
       </div>
 
       <div>
-        <label htmlFor="room">Room name:</label>
+        <label htmlFor="room">Class name:</label>
         <input
           type="text"
           id="room"

@@ -11,7 +11,7 @@ const App = () => {
         {/*<h1></h1>*/}
         {/* <div classRoom="account" */}
         <div className="account">
-          <IconButton color="primary" style={{ fontSize: 60, color: "white" }}>
+          <IconButton color="primary" style={{ fontSize: 90, color: "white" }}>
             <AccountCircle />
           </IconButton>
         </div>

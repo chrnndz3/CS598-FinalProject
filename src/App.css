@@ -259,7 +259,7 @@ textarea {
   position: relative;
   text-align: right;
   right: 10px;
-  top: 5px;
+  /*top: 5px;*/
   color: white;
   /* background-color: white; */
 }
